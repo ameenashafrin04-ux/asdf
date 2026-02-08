@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Special Question ❤️</title>
+    <title>For Richuuuuu ❤️</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-red: #ff4d6d;
             --soft-pink: #ffccd5;
-            --white: #ffffff;
         }
 
         body {
             margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,67 +33,52 @@
             position: relative;
             z-index: 2;
             text-align: center;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 3rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
             border-radius: 30px;
             box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
-            backdrop-filter: blur(10px);
-            max-width: 400px;
+            max-width: 450px;
             width: 90%;
         }
 
-        .gif-container img {
-            width: 200px;
+        .anime-img {
+            width: 100%;
+            max-width: 300px;
             border-radius: 20px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         h1 {
             font-family: 'Dancing Script', cursive;
             color: var(--primary-red);
             font-size: 2.5rem;
-            margin-bottom: 2rem;
+            margin: 10px 0;
         }
 
         .buttons {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 20px;
-            position: relative;
-            height: 60px;
+            margin-top: 20px;
+            min-height: 100px;
         }
 
         .btn {
-            padding: 12px 35px;
+            padding: 15px 35px;
             font-size: 1.2rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            font-weight: 600;
+            transition: transform 0.2s;
         }
 
-        #yesBtn {
-            background-color: var(--primary-red);
-            color: white;
-            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
-        }
+        #yesBtn { background-color: var(--primary-red); color: white; }
+        #noBtn { background-color: #f8f9fa; color: #666; }
 
-        #yesBtn:hover {
-            transform: scale(1.1);
-            background-color: #ff758f;
-        }
-
-        #noBtn {
-            background-color: #f8f9fa;
-            color: #666;
-            position: absolute;
-            right: 20px;
-        }
-
-        /* Success State */
         .hidden { display: none; }
-        .celebration h1 { font-size: 3rem; }
     </style>
 </head>
 <body>
@@ -103,10 +86,8 @@
     <div id="particles-js"></div>
 
     <div class="container" id="mainContainer">
-        <div class="gif-container">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueXpsZzB4bm9idWlzZmt6NXpueG9idWlzZmt6NXpueG9idWlzZmt6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCBmcm9tX2dpZmh5JmN0PWc/c76IJLufpNwSULPk77/giphy.gif" alt="Cute Cat">
-        </div>
-        <h1 id="question">Will you be my Valentine?</h1>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueXpsZzB4bm9idWlzZmt6NXpueG9idWlzZmt6NXpueG9idWlzZmt6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCBmcm9tX2dpZmh5JmN0PWc/3o7TKoWXlo3M189x8k/giphy.gif" class="anime-img" alt="Anime Girl Proposing">
+        <h1>Richuuuuu, will you be my Valentine?</h1>
         <div class="buttons">
             <button class="btn" id="yesBtn">Yes!</button>
             <button class="btn" id="noBtn">No</button>
@@ -114,47 +95,40 @@
     </div>
 
     <div class="container hidden" id="successContainer">
-        <div class="gif-container">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueXpsZzB4bm9idWlzZmt6NXpueG9idWlzZmt6NXpueG9idWlzZmt6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCBmcm9tX2dpZmh5JmN0PWc/KztT2c4u8mYYUiMKdJ/giphy.gif" alt="Happy Dance">
-        </div>
-        <div class="celebration">
-            <h1>Yay! See you on the 14th! ❤️</h1>
-            <p>I knew you'd say yes!</p>
-        </div>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueXpsZzB4bm9idWlzZmt6NXpueG9idWlzZmt6NXpueG9idWlzZmt6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCBmcm9tX2dpZmh5JmN0PWc/KztT2c4u8mYYUiMKdJ/giphy.gif" class="anime-img" alt="Happy Anime Couple">
+        <h1>Yay! It's a Date, Richuuuuu! ❤️</h1>
+        <p>I knew you'd say yes!</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.min.js"></script>
     <script>
         const noBtn = document.getElementById('noBtn');
         const yesBtn = document.getElementById('yesBtn');
-        const mainContainer = document.getElementById('mainContainer');
-        const successContainer = document.getElementById('successContainer');
+        let yesSize = 1;
 
-        // Playful "No" button movement
         noBtn.addEventListener('mouseover', () => {
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
-            
             noBtn.style.position = 'fixed';
             noBtn.style.left = `${x}px`;
             noBtn.style.top = `${y}px`;
+            
+            // Make Yes button bigger as the No button runs away
+            yesSize += 0.2;
+            yesBtn.style.transform = `scale(${yesSize})`;
         });
 
-        // "Yes" button click
         yesBtn.addEventListener('click', () => {
-            mainContainer.classList.add('hidden');
-            successContainer.classList.remove('hidden');
-            createConfetti();
+            document.getElementById('mainContainer').classList.add('hidden');
+            document.getElementById('successContainer').classList.remove('hidden');
         });
 
-        // Initialize Background Hearts
         particlesJS('particles-js', {
             "particles": {
-                "number": { "value": 15 },
+                "number": { "value": 30 },
                 "shape": { "type": "heart" },
                 "color": { "value": "#ff4d6d" },
-                "opacity": { "value": 0.3 },
-                "size": { "value": 15 },
+                "size": { "value": 10 },
                 "move": { "enable": true, "speed": 2 }
             }
         });
