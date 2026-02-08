@@ -25,35 +25,42 @@
 
     .card {
       background: rgba(255, 255, 255, 0.95);
-      padding: 2.5rem;
-      border-radius: 22px;
+      padding: 2.8rem;
+      border-radius: 24px;
       max-width: 520px;
       width: 90%;
       box-shadow: 0 25px 45px rgba(0,0,0,0.18);
-      animation: fadeIn 2s ease;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .screen {
+      display: none;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .screen.active {
+      display: block;
     }
 
     h1 {
       margin-top: 0;
       font-size: 2.3rem;
-      animation: fadeIn 2.5s ease;
     }
 
     p {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       line-height: 1.7;
-      margin: 1rem 0;
-      animation: fadeIn 3s ease;
+      margin: 1.2rem 0;
     }
 
     .highlight {
-      font-weight: bold;
       color: #e63946;
+      font-weight: bold;
     }
 
     button {
       margin-top: 2rem;
-      padding: 0.9rem 2rem;
+      padding: 0.9rem 2.2rem;
       font-size: 1.1rem;
       border: none;
       border-radius: 50px;
@@ -68,30 +75,25 @@
       box-shadow: 0 12px 25px rgba(0,0,0,0.25);
     }
 
-    .hidden {
-      display: none;
-    }
-
     .question {
-      font-size: 2.1rem;
+      font-size: 2.2rem;
       color: #e63946;
-      margin-top: 1.8rem;
-      animation: popIn 0.9s ease;
+      margin-top: 1.5rem;
+      animation: popIn 0.8s ease;
     }
 
     .final {
-      margin-top: 1.5rem;
+      margin-top: 1.3rem;
       font-size: 1.2rem;
-      animation: fadeIn 2s ease;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(25px); }
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes popIn {
-      0% { transform: scale(0.5); opacity: 0; }
+      0% { transform: scale(0.6); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
 
@@ -114,61 +116,73 @@
 <body>
 
   <div class="card">
-    <h1>Hey Richuuuu ❤️</h1>
 
-    <p>
-      I made this just for you…  
-      because some things are better said from the heart.
-    </p>
+    <!-- Screen 1 -->
+    <div class="screen active">
+      <h1>Hey Richuuuu ❤️</h1>
+      <p>
+        I made this just for you…  
+        because some things are better said from the heart.
+      </p>
+      <button onclick="nextScreen()">Next 💕</button>
+    </div>
 
-    <p>
-      This year marks our <span class="highlight">3rd anniversary</span>, booboo 🥺  
-      and every single day with you has been a blessing.
-    </p>
+    <!-- Screen 2 -->
+    <div class="screen">
+      <p>
+        This year marks our <span class="highlight">3rd anniversary</span>, booboo 🥺  
+        and every single day with you has been a blessing.
+      </p>
+      <p>
+        Oro timilum ninneyitt spend cheythath  
+        ente happiest moments aayirunnu, boooo 💕  
+        those memories live rent-free in my heart.
+      </p>
+      <button onclick="nextScreen()">Next 💖</button>
+    </div>
 
-    <p>
-      Oro timilum ninneyitt spend cheythath  
-      <span class="highlight">ente happiest moments</span> aayirunnu, boooo 💕  
-      those memories live rent-free in my heart.
-    </p>
+    <!-- Screen 3 -->
+    <div class="screen">
+      <p>
+        You became my comfort, my laughter, my safe place.  
+        You changed my life in ways I never knew I needed.
+      </p>
+      <p>
+        Will you be my love forever…? 💖  
+        Because I choose you — today, tomorrow, always.
+      </p>
+      <button onclick="nextScreen()">Next 💍</button>
+    </div>
 
-    <p>
-      You became my comfort, my laughter, my safe place.  
-      You changed my life in ways I never knew I needed.
-    </p>
-
-    <p>
-      Will you be my love forever…? 💖  
-      Because I choose you — today, tomorrow, always.
-    </p>
-
-    <button id="revealBtn">I have one last question…</button>
-
-    <div id="proposal" class="hidden">
+    <!-- Screen 4 -->
+    <div class="screen">
       <div class="question">Will you marry me? 💍</div>
       <div class="final">
         No matter your answer…  
         thank you for being my everything ❤️
       </div>
+      <button onclick="launchConfetti()">Yes 💕</button>
     </div>
+
   </div>
 
   <script>
-    const button = document.getElementById('revealBtn');
-    const proposal = document.getElementById('proposal');
+    let current = 0;
+    const screens = document.querySelectorAll('.screen');
 
-    button.addEventListener('click', () => {
-      proposal.classList.remove('hidden');
-      button.style.display = 'none';
-      launchConfetti();
-    });
+    function nextScreen() {
+      screens[current].classList.remove('active');
+      current++;
+      screens[current].classList.add('active');
+    }
 
     function launchConfetti() {
       for (let i = 0; i < 120; i++) {
         const confetti = document.createElement('div');
         confetti.classList.add('confetti');
         confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.backgroundColor = Math.random() > 0.5 ? '#ff4d6d' : '#ffd166';
+        confetti.style.backgroundColor =
+          Math.random() > 0.5 ? '#ff4d6d' : '#ffd166';
         confetti.style.animationDuration = 2 + Math.random() * 3 + 's';
         confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
         document.body.appendChild(confetti);
